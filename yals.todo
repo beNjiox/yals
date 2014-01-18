@@ -1,0 +1,13 @@
+Testing:
+  ☐ Unit Testing
+  ☐ Functional Testing
+
+Users:
+  ☐ User CRUD
+  ☐ User's relations ( House -> (furnitures/cars) )
+  ☐ Users Paginations
+
+App General:
+  ☐ BreadCrumbs
+  ☐ CSRF
+  ☐ Page titles
