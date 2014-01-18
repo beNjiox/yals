@@ -1,13 +1,8 @@
 <?php namespace Yals\Repositories\UserRepositories;
 
-use Eloquent;
 use User;
 
-class DbUserRepository extends Eloquent implements UserRepositoryInterface {
-
-    protected $fillable = [ 'username', 'email' ];
-    protected $guarded  = [ 'id' ];
-    protected $table    = 'users';
+class DbUserRepository implements UserRepositoryInterface {
 
     public function getAll()
     {
@@ -16,9 +11,10 @@ class DbUserRepository extends Eloquent implements UserRepositoryInterface {
 
     public function add(array $data)
     {
-        $this->fill($data);
-        if ($this->save())
-            return $this->toArray();
+        $user = new User;
+        $user->fill($data);
+        if ($user->save())
+            return $user->toArray();
         return null;
     }
 
@@ -29,7 +25,7 @@ class DbUserRepository extends Eloquent implements UserRepositoryInterface {
 
     public function edit($id, array $data)
     {
-        $user = $this->findOrFail($id);
+        $user = User::findOrFail($id);
         $user->fill($data);
         if ($user->save())
         {
@@ -40,6 +36,6 @@ class DbUserRepository extends Eloquent implements UserRepositoryInterface {
 
     public function deleteById($id)
     {
-        return $this->findOrFail($id)->delete();
+        return User::findOrFail($id)->delete();
     }
 }
