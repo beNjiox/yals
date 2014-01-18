@@ -14,3 +14,20 @@ h1.top_title {
 .show-user .fa-edit {
     font-size:18px;
 }
+
+.user-row .action-items-row
+{
+    display:none;
+}
+
+.action-items-row .fa {
+    font-size:17px;
+}
+
+.user-row:hover .action-items-row  {
+    display:block;;
+}
+
+.user-row:hover {
+    background: #e6e6e6;
+}

@@ -3,11 +3,11 @@ Testing:
   ☐ Functional Testing
 
 Users:
-  ☐ User CRUD
+  ✔ User CRUD @done (14-01-18 15:16)
   ☐ User's relations ( House -> (furnitures/cars) )
   ☐ Users Paginations
 
 App General:
   ☐ BreadCrumbs
-  ☐ CSRF
   ☐ Page titles
+  ☐ CSRF
