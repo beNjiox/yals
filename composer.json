@@ -4,7 +4,9 @@
     "config": {
         "preferred-install": "dist"
     },
-    "require": {},
+    "require": {
+        "laravel/framework": "4.1.*"
+    },
     "autoload": {
         "psr-0": {
             "Yals": "app/"
@@ -37,6 +39,7 @@
     ],
     "minimum-stability": "dev",
     "require-dev": {
+        "davedevelopment/hamcrest-php": "dev-master",
         "phpunit/phpunit": "dev-master",
         "mockery/mockery": "dev-master",
         "fzaninotto/faker": "dev-master"

@@ -107,7 +107,6 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Yals\Repositories\RepositoryServiceProvider'
-
 	),
 
 	/*
