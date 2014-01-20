@@ -15,4 +15,11 @@ class BaseController extends Controller {
 		}
 	}
 
+	protected function unexpectedError($message, $to = 'back')
+	{
+		if ($to == 'back')
+			return Redirect::back()->withMessage($message)->withType('danger');
+		return Redirect::to($to)->withMessage($message)->withType('danger');
+	}
+
 }

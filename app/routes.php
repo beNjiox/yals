@@ -2,7 +2,7 @@
 
 Route::get('/', function()
 {
-	return View::make('index');
+	return Redirect::to("/users");
 });
 
 Route::resource('users', 'UserController');

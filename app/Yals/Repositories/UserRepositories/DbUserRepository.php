@@ -2,6 +2,8 @@
 
 use User;
 
+class UserException extends \Exception {}
+
 class DbUserRepository implements UserRepositoryInterface {
 
     public function getAll()
@@ -12,10 +14,8 @@ class DbUserRepository implements UserRepositoryInterface {
     public function add(array $data)
     {
         $user = new User;
-        $user->fill($data);
-        if ($user->save())
-            return $user->toArray();
-        return null;
+        if ($user->fill($data)->save()) return $user->toArray();
+        throw new UserException("This user can't added.");
     }
 
     public function get($id)
@@ -25,17 +25,14 @@ class DbUserRepository implements UserRepositoryInterface {
 
     public function edit($id, array $data)
     {
-        $user = User::findOrFail($id);
-        $user->fill($data);
-        if ($user->save())
-        {
-            return $user->toArray();
-        }
-        return null;
+        $user = User::findOrFail($id)->fill($data);
+        if ($user->save()) return $user->toArray();
+        throw new UserException("This user can't be edited.");
     }
 
     public function deleteById($id)
     {
-        return User::findOrFail($id)->delete();
+        if (User::findOrFail($id)->delete()) return true;
+        throw new UserException("This user can't be deleted.");
     }
 }

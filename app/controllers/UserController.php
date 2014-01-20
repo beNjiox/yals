@@ -45,7 +45,6 @@ class UserController extends \BaseController {
 		{
 			return Redirect::to('/users/create')->withInput()->withErrors($this->validator->errors());
 		}
-
 		$user = $this->user->add(Input::all());
 		return Redirect::to('/users')
 			->with(['message' => 'The user has been successfully added.', 'type' => 'success' ]);
@@ -99,12 +98,9 @@ class UserController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		if ($this->user->deleteById($id))
-		{
-			return Redirect::route("users.index")->withMessage("User #$id has been deleted.")->withType('info');
-		}
-		return Redirect::to("/users/$id")->withMessage("An error occured while deleting this user.")->withType('danger');
-
+		if ($this->user->deleteById($id) !== false)
+			return Redirect::to("/users")->withMessage("User #$id has been deleted.")->withType('info');
+		return $this->unexpectedError('An error occured while deleting this user.', '/users');
 	}
 
 }

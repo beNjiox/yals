@@ -19,6 +19,13 @@
         </div>
         <div class="panel-body">
             @include ('users/_form')
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    {{ Form::submit('Edit this user', [ 'class' => 'btn btn-primary' ]) }}
+                </div>
+            </div>
+
         </div>
     </div>
 

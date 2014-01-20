@@ -12,8 +12,3 @@
     </div>
 </div>
 
-<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-        {{ Form::submit('Add a new User', [ 'class' => 'btn btn-primary' ]) }}
-    </div>
-</div>
