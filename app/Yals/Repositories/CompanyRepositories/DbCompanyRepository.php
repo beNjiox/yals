@@ -6,7 +6,7 @@ class CompanyException extends \Exception {}
 
 class DbCompanyRepository implements CompanyRepositoryInterface
 {
-    public function getAll()
+    public function getAll($limit = 10)
     {
         return Company::all()->toArray();
     }

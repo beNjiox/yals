@@ -6,9 +6,14 @@ class UserException extends \Exception {}
 
 class DbUserRepository implements UserRepositoryInterface {
 
-    public function getAll()
+    public function getAll($limit = 10)
     {
         return User::all()->toArray();
+    }
+
+    public function getAllWithComment($limit = 10)
+    {
+        return User::with('comments')->get()->toArray();
     }
 
     public function add(array $data)

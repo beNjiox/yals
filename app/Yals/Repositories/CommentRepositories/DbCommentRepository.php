@@ -6,6 +6,12 @@ class CommentException extends \Exception {}
 
 class DbCommentRepository implements CommentRepositoryInterface {
 
+
+    public function getAll($limit = 10)
+    {
+        return Comment::all()->toArray();
+    }
+
     public function add($user_id, array $data)
     {
         $comment = new Comment;

@@ -21,7 +21,7 @@ class UserController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('users.index')->withUsers($this->user->getAll());
+		return View::make('users.index')->withUsers($this->user->getAllWithComment());
 	}
 
 	/**

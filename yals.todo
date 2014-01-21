@@ -1,14 +1,30 @@
 Testing:
-  ✔ Unit Testing @done (14-01-20 03:30)
-  ✔ Functional Testing @done (14-01-20 03:30)
+  ☐ Dashboard
+  ☐ Comments
 
-Users:
-  ✔ User CRUD @done (14-01-18 15:16)
+Companies:
+  ☐ A user can choose which company to join
+
+Comments:
+  ☐ Editable
+  ☐ Deletable
+  ☐ Index page
 
 App General:
   ☐ BreadCrumbs
   ☐ Page titles
   ☐ CSRF
+  ☐ Paginations
+  ☐ Handle limit properly
 
- ☐ User hasMany Comments <==> Comment belongsToUser
- ☐ User belongsTo Company <==> Company hasMany Users
+Dashboard:
+  ☐ get 3 users with the most comments and get 5 last comments
+  ☐ get 5 very last comments
+  ☐ get 3 companies with most users
+  ☐ get the numbers of each comment types
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ Unit Testing @done (14-01-20 03:30) @project(Testing)
+ ✔ Functional Testing @done (14-01-20 03:30) @project(Testing)
+ ✔ User CRUD @done (14-01-18 15:16) @project(Users)
