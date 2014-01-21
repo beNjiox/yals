@@ -1,13 +1,14 @@
 Testing:
-  ☐ Unit Testing
-  ☐ Functional Testing
+  ✔ Unit Testing @done (14-01-20 03:30)
+  ✔ Functional Testing @done (14-01-20 03:30)
 
 Users:
   ✔ User CRUD @done (14-01-18 15:16)
-  ☐ User's relations ( House -> (furnitures/cars) )
-  ☐ Users Paginations
 
 App General:
   ☐ BreadCrumbs
   ☐ Page titles
   ☐ CSRF
+
+ ☐ User hasMany Comments <==> Comment belongsToUser
+ ☐ User belongsTo Company <==> Company hasMany Users

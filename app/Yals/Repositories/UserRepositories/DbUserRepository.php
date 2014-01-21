@@ -35,4 +35,11 @@ class DbUserRepository implements UserRepositoryInterface {
         if (User::findOrFail($id)->delete()) return true;
         throw new UserException("This user can't be deleted.");
     }
+
+    public function getWith($id, array $associated_models)
+    {
+        return User::where('id', $id)->with(array('comments' => function($query) {
+            $query->orderBy('id', 'DESC');
+        }))->first()->toArray();
+    }
 }

@@ -1,14 +1,14 @@
 <?php
 
 use Yals\Repositories\UserRepositories\UserRepositoryInterface as UserRepositoryInterface;
-use Yals\Services\Validation\UserValidator as Validator;
+use Yals\Services\Validation\UserValidator as UserValidator;
 
 class UserController extends \BaseController {
 
 	protected $user;
 	protected $validator;
 
-	public function __construct(UserRepositoryInterface $user, Validator $validator)
+	public function __construct(UserRepositoryInterface $user, UserValidator $validator)
 	{
 		$this->user      = $user;
 		$this->validator = $validator;
@@ -58,7 +58,7 @@ class UserController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return View::make('users.show')->withUser($this->user->get($id));
+		return View::make('users.show')->withUser($this->user->getWith($id, [ 'comments' ]));
 	}
 
 	/**

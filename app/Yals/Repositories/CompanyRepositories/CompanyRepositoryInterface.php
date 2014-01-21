@@ -1,9 +1,9 @@
-<?php namespace Yals\Repositories\UserRepositories;
+<?php namespace Yals\Repositories\CompanyRepositories;
 
-interface UserRepositoryInterface {
+interface CompanyRepositoryInterface
+{
     public function getAll();
     public function get($id);
-    public function getWith($id, array $associated_models);
     public function add(array $data);
     public function edit($id, array $data);
     public function deleteById($id);

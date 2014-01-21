@@ -8,6 +8,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	protected $fillable = [ 'username', 'email' ];
 	protected $guarded  = [ 'id' ];
 
+	public function comments()	{ return $this->hasMany('Comment'); }
+	public function company()	{ return $this->belongsTo('Company'); }
+
 	/**
 	 * The database table used by the model.
 	 *

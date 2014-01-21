@@ -43,7 +43,8 @@
         "phpunit/phpunit": "dev-master",
         "mockery/mockery": "dev-master",
         "fzaninotto/faker": "dev-master",
-        "fabpot/goutte": "dev-master"
+        "fabpot/goutte": "dev-master",
+        "way/generators": "dev-master"
     },
     "description": "just another sample laravel4.X App."
 }

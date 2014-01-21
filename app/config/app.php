@@ -2,6 +2,12 @@
 
 return array(
 
+	'comment_types' => [
+		'info'    => 'info',
+		'warning' => 'warning',
+		'danger'  => 'danger'
+	],
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application Debug Mode
@@ -106,7 +112,13 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Yals\Repositories\RepositoryServiceProvider'
+
+		/* app specific */
+		'Yals\Repositories\RepositoryServiceProvider',
+
+		/* dev specific */
+		'Way\Generators\GeneratorsServiceProvider'
+
 	),
 
 	/*
