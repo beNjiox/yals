@@ -10,4 +10,4 @@ app/tests/coverage
 public/packages
 app/config/packages/barryvdh/laravel-debugbar/.gitkeep
 app/config/packages/barryvdh/laravel-debugbar/config.php
-app/storage/debugbar/.gitignore
+app/storage/debugbar
