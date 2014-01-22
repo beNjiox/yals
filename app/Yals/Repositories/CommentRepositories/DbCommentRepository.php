@@ -6,10 +6,13 @@ class CommentException extends \Exception {}
 
 class DbCommentRepository implements CommentRepositoryInterface {
 
-
-    public function getAll($limit = 10)
+    public function getAll($limit = 10, $order = 'desc', $with_author = false)
     {
-        return Comment::all()->toArray();
+        return
+            $with_author == false ?
+                Comment::skip(0)->limit($limit)->orderBy('id', $order)->get()->toArray()
+                :
+                Comment::with('user')->skip(0)->limit($limit)->orderBy('id', $order)->get()->toArray();
     }
 
     public function add($user_id, array $data)
