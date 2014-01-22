@@ -21,8 +21,8 @@ class UserValidator {
     {
         if ( $id !== null )
         {
-            static::$rules['username'] .= ":{$id}";
-            static::$rules['email']    .= ":{$id}";
+            static::$rules['username'] .= ",{$id}";
+            static::$rules['email']    .= ",{$id}";
         }
 
         $validator = Validator::make($input, static::$rules);

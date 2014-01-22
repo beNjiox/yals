@@ -27,6 +27,13 @@
                 <ul>
                     <li> ID: {{ $user['id'] }} </li>
                     <li> Email: {{ $user['email'] }} </li>
+                    <li> Company:
+                      @if ($user['company'])
+                        <a href="/companies/{{ $user['company']['id'] }}">{{ $user['company']['name'] }}</a>
+                      @else
+                        none.
+                      @endif
+                    </li>
                 </ul>
           </div>
     </div>

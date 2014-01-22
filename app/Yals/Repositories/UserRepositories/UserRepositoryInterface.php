@@ -1,6 +1,13 @@
 <?php namespace Yals\Repositories\UserRepositories;
 
 interface UserRepositoryInterface {
+    /**
+     * This method give the $nb_users users with the most comments ($nb_comments should be retrieved)
+     * @param  integer $nb_users
+     * @param  integer $nb_comments
+     * @return array               users with comments
+     */
+    public function getTopByComments($nb_users = 3, $nb_comments = 3);
     public function getAll($limit = 10);
     public function getAllWithComment($limit = 10);
     public function get($id);

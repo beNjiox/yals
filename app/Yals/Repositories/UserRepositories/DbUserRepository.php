@@ -1,10 +1,36 @@
 <?php namespace Yals\Repositories\UserRepositories;
 
 use User;
+use DB;
 
 class UserException extends \Exception {}
 
 class DbUserRepository implements UserRepositoryInterface {
+
+    /**
+     * This method give the $nb_users users with the most comments ($nb_comments should be retrieved)
+     * @param  integer $nb_users
+     * @param  integer $nb_comments
+     * @return array               users with comments
+     */
+public function getTopByComments($nb_users = 3, $nb_comments = 3)
+{
+    $data['users'] =
+             DB::table('users')
+                ->join('comments', 'users.id', '=', 'comments.user_id')
+                ->select(DB::raw('count(comments.id) as nb_comments, users.username, users.id'))
+                ->groupBy('users.id')
+                ->orderBy(DB::raw('nb_comments'), 'desc')
+                ->limit($nb_users)
+                ->get();
+
+    $ids = array_column($data['users'], 'id');
+
+    return User::whereIn('id', $ids)->with([ 'comments' => function($query) use ($nb_comments) {
+        $query->orderBy('id', 'DESC');
+        $query->limit($nb_comments);
+    } ])->get()->toArray();
+}
 
     public function getAll($limit = 10)
     {
@@ -43,8 +69,17 @@ class DbUserRepository implements UserRepositoryInterface {
 
     public function getWith($id, array $associated_models)
     {
-        return User::where('id', $id)->with(array('comments' => function($query) {
-            $query->orderBy('id', 'DESC');
-        }))->first()->toArray();
+        $query = User::where('id', $id);
+        foreach ($associated_models as $model)
+        {
+            $query = $query->with([ $model => function($query) {
+                $query->orderBy('id', 'desc');
+            }]);
+        }
+        $user = $query->first();
+        if ( ! $user )
+            throw ModelNotFoundException;
+        return $user;
     }
+
 }
