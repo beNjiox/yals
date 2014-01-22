@@ -24,16 +24,18 @@
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
             <div class='well'>
                 <a href='/users/{{ $user["id"] }}'> {{{ $user['username'] }}} </a>
-                @foreach ($user['comments'] as $comment)
-                    <div style='margin-top:5px;padding:10px;' class='alert-{{$comment["type"]}}'>
-                        <p> <b> {{{ $comment["text"] }}} </b> </p>
-                        @if ($comment['created_at'] == $comment['updated_at'])
-                            <small> Created at: {{ $comment['created_at'] }} </small>
-                        @else
-                            <small> Updated at: {{ $comment['created_at'] }} </small>
-                        @endif
-                    </div>
-                @endforeach
+                @if (isset($user['comments']))
+                    @foreach ($user['comments'] as $comment)
+                        <div style='margin-top:5px;padding:10px;' class='alert-{{$comment["type"]}}'>
+                            <p> <b> {{{ $comment["text"] }}} </b> </p>
+                            @if ($comment['created_at'] == $comment['updated_at'])
+                                <small> Created at: {{ $comment['created_at'] }} </small>
+                            @else
+                                <small> Updated at: {{ $comment['created_at'] }} </small>
+                            @endif
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
         @endforeach

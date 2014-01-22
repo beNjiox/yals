@@ -11,6 +11,11 @@ class DbCompanyRepository implements CompanyRepositoryInterface
         return Company::all()->toArray();
     }
 
+    public function getList()
+    {
+        return Company::lists('name', 'id');
+    }
+
     public function add(array $data)
     {
         $company = new Company;
@@ -21,6 +26,21 @@ class DbCompanyRepository implements CompanyRepositoryInterface
     public function get($id)
     {
         return Company::findOrFail($id)->toArray();
+    }
+
+    public function getWith($id, array $associated_models)
+    {
+        $query = Company::where('id', $id);
+        foreach ($associated_models as $model)
+        {
+            $query = $query->with([ $model => function($query) {
+                $query->orderBy('id', 'desc');
+            }]);
+        }
+        $company = $query->first();
+        if ( ! $company )
+            throw ModelNotFoundException;
+        return $company;
     }
 
     public function edit($id, array $data)

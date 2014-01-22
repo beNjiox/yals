@@ -117,7 +117,8 @@ return array(
 		'Yals\Repositories\RepositoryServiceProvider',
 
 		/* dev specific */
-		'Way\Generators\GeneratorsServiceProvider'
+		'Way\Generators\GeneratorsServiceProvider',
+		'Barryvdh\Debugbar\ServiceProvider',
 
 	),
 

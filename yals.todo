@@ -1,3 +1,11 @@
+Dashboard:
+  ☐ get 3 users with the most comments and get 5 last comments
+  ✔ get 5 very last comments @done (14-01-22 00:07)
+  ☐ get 3 companies with most users
+  ☐ get the numbers of each comment types
+
+
+
 Testing:
   ☐ Dashboard
   ☐ Comments
@@ -16,12 +24,6 @@ App General:
   ☐ CSRF
   ☐ Paginations
   ☐ Handle limit properly
-
-Dashboard:
-  ☐ get 3 users with the most comments and get 5 last comments
-  ☐ get 5 very last comments
-  ☐ get 3 companies with most users
-  ☐ get the numbers of each comment types
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:

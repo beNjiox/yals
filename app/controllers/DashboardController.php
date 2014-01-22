@@ -27,8 +27,8 @@ class DashboardController extends \BaseController
         // get the numbers of each comment types
 
         return View::make('dashboard.index')
-            ->withUsers($this->user->getAllWithComment(10))
-            ->withComments($this->comment->getAll(10))
+            ->withUsers($this->user->getTopByComments(3))
+            ->withComments($this->comment->getAll(10, 'desc', true))
             ->withCompanies($this->company->getAll(3));
      }
 }

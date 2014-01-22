@@ -58,7 +58,7 @@ class CompanyController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return View::make('companies.show')->withCompany($this->company->get($id));
+		return View::make('companies.show')->withCompany($this->company->getWith($id, ['users']));
 	}
 
 	/**
