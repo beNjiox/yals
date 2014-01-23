@@ -38,7 +38,7 @@
 
     <ul>
       @foreach ($company['users'] as $user)
-      <li>{{ $user['username'] }} - <a href="mailo:{{ $user['email'] }}">{{ $user['email'] }}</a></li>
+      <li> {{ $user['username'] }} - <a href="mailo:{{ $user['email'] }}">{{ $user['email'] }}</a> <small> (#{{$user['id']}}) </small> </li>
       @endforeach
     </ul>
 

@@ -69,4 +69,8 @@ require $framework.'/Illuminate/Foundation/start.php';
 |
 */
 
+Blade::extend(function($value) {
+    return preg_replace('/\{\?(.+)\?\}/', '<?php ${1} ?>', $value);
+});
+
 return $app;

@@ -28,18 +28,18 @@ public function getTopByComments($nb_users = 3, $nb_comments = 3)
 
     return User::whereIn('id', $ids)->with([ 'comments' => function($query) use ($nb_comments) {
         $query->orderBy('id', 'DESC');
-        $query->limit($nb_comments);
+        // $query->limit(6);
     } ])->get()->toArray();
 }
-
-    public function getAll($limit = 10)
-    {
-        return User::all()->toArray();
-    }
 
     public function getAllWithComment($limit = 10)
     {
         return User::with('comments')->get()->toArray();
+    }
+
+    public function getAllFromCompanyWithComment($company_id, $limit = 10)
+    {
+        return User::with('comments')->where('company_id', $company_id)->get()->toArray();
     }
 
     public function add(array $data)
@@ -80,6 +80,11 @@ public function getTopByComments($nb_users = 3, $nb_comments = 3)
         if ( ! $user )
             throw ModelNotFoundException;
         return $user;
+    }
+
+    public function total()
+    {
+        return User::count();
     }
 
 }

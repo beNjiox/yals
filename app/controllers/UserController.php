@@ -19,7 +19,12 @@ class UserController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($company_id)
+	{
+		return View::make('users.index')->withUsers($this->user->getAllFromCompanyWithComment($company_id));
+	}
+
+	public function index_global()
 	{
 		return View::make('users.index')->withUsers($this->user->getAllWithComment());
 	}

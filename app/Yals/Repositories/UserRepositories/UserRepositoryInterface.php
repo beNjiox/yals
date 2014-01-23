@@ -8,11 +8,12 @@ interface UserRepositoryInterface {
      * @return array               users with comments
      */
     public function getTopByComments($nb_users = 3, $nb_comments = 3);
-    public function getAll($limit = 10);
     public function getAllWithComment($limit = 10);
+    public function getAllFromCompanyWithComment($company_id, $limit = 10);
     public function get($id);
     public function getWith($id, array $associated_models);
     public function add(array $data);
     public function edit($id, array $data);
     public function deleteById($id);
+    public function total();
 }

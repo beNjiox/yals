@@ -1,6 +1,7 @@
 <?php namespace Yals\Repositories\CommentRepositories;
 
 use Comment;
+use DB;
 
 class CommentException extends \Exception {}
 
@@ -39,5 +40,15 @@ class DbCommentRepository implements CommentRepositoryInterface {
     {
         if (Comment::findOrFail($id)->delete()) return true;
         throw new CommentException("This comment can't be deleted.");
+    }
+
+    public function total()
+    {
+        return Comment::count();
+    }
+
+    public function statTypes()
+    {
+        return (Comment::groupBy('type')->orderBy('nb_comments', 'desc')->get(array('type', DB::raw('count(*) as nb_comments')))->toArray());
     }
 }
