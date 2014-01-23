@@ -3,12 +3,8 @@
     <div class="row">
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
             <h5>
-                Most active users
-                <small> Total: {{ isset($users['nb_users']) ? $users['nb_users'] : 0 }}</small>
+                Total : <strong> <a href="/users"> {{ $nb_users }} {{ Str::plural("User", $nb_users) }} </a> </strong>
             </h5>
-        </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-right">
-            <a href="/users">See all users</a>
         </div>
     </div>
 </div>
@@ -23,17 +19,23 @@
         @foreach ($users as $user)
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
             <div class='well'>
-                <a href='/users/{{ $user["id"] }}'> {{{ $user['username'] }}} </a>
-                @foreach ($user['comments'] as $comment)
-                    <div style='margin-top:5px;padding:10px;' class='alert-{{$comment["type"]}}'>
-                        <p> <b> {{{ $comment["text"] }}} </b> </p>
-                        @if ($comment['created_at'] == $comment['updated_at'])
-                            <small> Created at: {{ $comment['created_at'] }} </small>
-                        @else
-                            <small> Updated at: {{ $comment['created_at'] }} </small>
-                        @endif
-                    </div>
-                @endforeach
+                <h3> <a href='/users/{{ $user["id"] }}'> {{{ $user['username'] }}} </a> </h3>
+                <h4> {{ count($user['comments']) }} {{ Str::plural("Comment", count($user['comments'])) }}</h4>
+                <hr>
+
+
+                @if (isset($user['comments']))
+                    @foreach (array_slice($user['comments'], 0, 3) as $comment)
+                        <div style='margin-top:5px;padding:10px;' class='alert-{{$comment["type"]}}'>
+                            <p> <b> {{{ $comment["text"] }}} </b> </p>
+                            @if ($comment['created_at'] == $comment['updated_at'])
+                                <small> Created at: {{ $comment['created_at'] }} </small>
+                            @else
+                                <small> Updated at: {{ $comment['created_at'] }} </small>
+                            @endif
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
         @endforeach

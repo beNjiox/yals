@@ -22,8 +22,8 @@ class CompanyValidator {
     {
         if ( $id !== null )
         {
-            static::$rules['name']        .= ":{$id}";
-            static::$rules['website_url'] .= ":{$id}";
+            static::$rules['name']        .= ",{$id}";
+            static::$rules['website_url'] .= ",{$id}";
         }
 
         $validator = Validator::make($input, static::$rules);

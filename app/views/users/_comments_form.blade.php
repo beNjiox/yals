@@ -2,8 +2,8 @@
       'method' => 'POST',
       'class'  => 'form-horizontal',
       'role'   => 'form',
-      'route'  => [ "users.comments.store", $user['id'] ]
-    ])
+      'route'  => [ "companies.users.comments.store", $user['company_id'], $user['id'] ]
+    ] )
 }}
 
 <div class="panel panel-default show-user">

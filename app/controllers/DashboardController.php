@@ -21,14 +21,13 @@ class DashboardController extends \BaseController
 
      public function main()
      {
-        // get 3 users with the most comments and get 5 last comments
-        // get 5 very last comments
-        // get 3 companies with most users
-        // get the numbers of each comment types
-
         return View::make('dashboard.index')
-            ->withUsers($this->user->getAllWithComment(10))
-            ->withComments($this->comment->getAll(10))
-            ->withCompanies($this->company->getAll(3));
+            ->withUsers($this->user->getTopByComments(3))
+            ->withComments($this->comment->getAll(10, 'desc', true))
+            ->withCompanies($this->company->getBiggestCompanies())
+            ->withNbUsers($this->user->total())
+            ->withNbCompanies($this->company->total())
+            ->withNbComments($this->comment->total())
+            ->withCommentStat($this->comment->statTypes());
      }
 }

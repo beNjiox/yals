@@ -5,7 +5,7 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
-	protected $fillable = [ 'username', 'email' ];
+	protected $fillable = [ 'username', 'email', 'company_id' ];
 	protected $guarded  = [ 'id' ];
 
 	public function comments()	{ return $this->hasMany('Comment'); }

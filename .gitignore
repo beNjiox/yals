@@ -6,3 +6,8 @@ composer.lock
 Thumbs.db
 app/database/production.sqlite
 app/tests/coverage
+.vagrant
+public/packages
+app/config/packages/barryvdh/laravel-debugbar/.gitkeep
+app/config/packages/barryvdh/laravel-debugbar/config.php
+app/storage/debugbar

@@ -1,9 +1,15 @@
+Dashboard:
+  ✔ get 3 users with the most comments and get 5 last comments @done (14-01-22 20:17)
+  ✔ get 5 very last comments @done (14-01-22 00:07)
+  ✔ get 3 companies with most users @done (14-01-22 20:17)
+  ☐ get the numbers of each comment types
+
 Testing:
   ☐ Dashboard
   ☐ Comments
 
 Companies:
-  ☐ A user can choose which company to join
+  ✔ A user can choose which company to join @done (14-01-22 17:14)
 
 Comments:
   ☐ Editable
@@ -16,12 +22,6 @@ App General:
   ☐ CSRF
   ☐ Paginations
   ☐ Handle limit properly
-
-Dashboard:
-  ☐ get 3 users with the most comments and get 5 last comments
-  ☐ get 5 very last comments
-  ☐ get 3 companies with most users
-  ☐ get the numbers of each comment types
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:

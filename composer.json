@@ -5,7 +5,8 @@
         "preferred-install": "dist"
     },
     "require": {
-        "laravel/framework": "4.1.*"
+        "laravel/framework": "4.1.*",
+        "barryvdh/laravel-debugbar": "dev-master"
     },
     "autoload": {
         "psr-0": {

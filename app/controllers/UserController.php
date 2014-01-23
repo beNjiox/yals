@@ -19,7 +19,12 @@ class UserController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($company_id)
+	{
+		return View::make('users.index')->withUsers($this->user->getAllFromCompanyWithComment($company_id));
+	}
+
+	public function index_global()
 	{
 		return View::make('users.index')->withUsers($this->user->getAllWithComment());
 	}
@@ -29,10 +34,12 @@ class UserController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
-	{
-		return View::make('users.create');
-	}
+public function create()
+{
+	$companyRepo = App::make('Yals\Repositories\CompanyRepositories\CompanyRepositoryInterface');
+
+	return View::make('users.create')->withCompanies($companyRepo->getList());
+}
 
 	/**
 	 * Store a newly created resource in storage.
@@ -58,7 +65,7 @@ class UserController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return View::make('users.show')->withUser($this->user->getWith($id, [ 'comments' ]));
+		return View::make('users.show')->withUser($this->user->getWith($id, [ 'comments', 'company' ]));
 	}
 
 	/**
@@ -69,7 +76,9 @@ class UserController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return View::make('users.edit')->withUser($this->user->get($id));
+		$companyRepo = App::make('Yals\Repositories\CompanyRepositories\CompanyRepositoryInterface');
+
+		return View::make('users.edit')->withUser($this->user->get($id))->withCompanies($companyRepo->getList());
 	}
 
 	/**

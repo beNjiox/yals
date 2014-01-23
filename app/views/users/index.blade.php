@@ -16,7 +16,7 @@
             <li class="list-group-item user-row">
                 <div class="row">
                     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                        <a href="/users/{{ $user['id'] }}"> {{ $user['username'] }} </a>
+                        {{ link_to_route('companies.users.show', $user['username'], [ $user['company_id'], $user['id'] ] )}}
                     </div>
                     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-right action-items-row">
                         <a href="/users/{{ $user['id'] }}" data-method='DELETE' data-confirm='Are you sure?'><i class='fa fa-times'></i></a>

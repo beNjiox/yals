@@ -19,14 +19,15 @@ class CommentController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store($user_id)
+	public function store($company_id, $user_id)
 	{
+
 		if ( ! $this->validator->validates(Input::all()) )
 		{
-			return Redirect::to("/users/$user_id?t=c")->withInput()->withCommentErrors($this->validator->errors());
+			return Redirect::route('companies.users.show', [ $company_id, $user_id ])->withInput()->withCommentErrors($this->validator->errors());
 		}
 		$comment = $this->comment->add($user_id, Input::all());
-		return Redirect::to("/users/$user_id?t=c")
+		return Redirect::route('companies.users.show', [ $company_id, $user_id ])
 			->with(['message' => 'The comment has been successfully added.', 'type' => 'success' ]);
 	}
 
@@ -36,15 +37,15 @@ class CommentController extends \BaseController {
 	 * @param  int  $comment_id
 	 * @return Response
 	 */
-	public function update($user_id, $comment_id)
+	public function update($company_id, $user_id, $comment_id)
 	{
 		$inputs = Input::all();
 		if ( ! $this->validator->validates($inputs, $comment_id) )
 		{
-			return Redirect::to("/users/$user_id?t=c")->withInput()->withCommentErrors($this->validator->errors());
+			return Redirect::route('companies.users.show', [ $company_id, $user_id ])->withInput()->withCommentErrors($this->validator->errors());
 		}
 		$this->comment->edit($comment_id, $inputs);
-		return Redirect::to("/users/$user_id?t=c")
+		return Redirect::route('companies.users.show', [ $company_id, $user_id ])
 			->with(['message' => "The comment #{$comment_id} has been successfully edited.", 'type' => 'success' ]);
 	}
 
@@ -55,10 +56,10 @@ class CommentController extends \BaseController {
 	 * @param  int  $comment_id
 	 * @return Response
 	 */
-	public function destroy($user_id, $comment_id)
+	public function destroy($company_id, $user_id, $comment_id)
 	{
 		if ($this->comment->deleteById($comment_id) !== false)
-			return Redirect::to("/users/$user_id?t=c")->withCommentMessage("Comment #$comment_id has been deleted.")->withType('info');
+			return Redirect::route('companies.users.show', [ $company_id, $user_id ])->withCommentMessage("Comment #$comment_id has been deleted.")->withType('info');
 		return $this->unexpectedError('An error occured while deleting this comment.', "/users/$user_id?t=c");
 	}
 

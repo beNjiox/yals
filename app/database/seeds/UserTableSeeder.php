@@ -18,7 +18,8 @@ class UserTableSeeder extends \Seeder {
         {
             $this->user->add([
                 'username' => $faker->name,
-                'email'    => $faker->email
+                'email'    => $faker->email,
+                'company_id' => mt_rand(1, 8)
             ]);
         }
     }
