@@ -2,6 +2,7 @@
 
 use Company;
 use DB;
+use Illuminate\Database\Eloquent\ModelNotFoundException as ModelNotFoundException;
 
 class CompanyException extends \Exception {}
 
@@ -66,7 +67,7 @@ class DbCompanyRepository implements CompanyRepositoryInterface
         }
         $company = $query->first();
         if ( ! $company )
-            throw ModelNotFoundException;
+            throw new ModelNotFoundException;
         return $company;
     }
 

@@ -2,6 +2,8 @@
 
 @section ('content')
 
+@section('breadcrumbs', Breadcrumbs::render('home'))
+
 <div class="well">
     <div class="container">
         <div class="row">

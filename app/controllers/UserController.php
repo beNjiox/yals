@@ -34,26 +34,28 @@ class UserController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-public function create()
-{
-	$companyRepo = App::make('Yals\Repositories\CompanyRepositories\CompanyRepositoryInterface');
+	public function create()
+	{
+		$companyRepo = App::make('Yals\Repositories\CompanyRepositories\CompanyRepositoryInterface');
 
-	return View::make('users.create')->withCompanies($companyRepo->getList());
-}
+		return View::make('users.create')->withCompanies($companyRepo->getList());
+	}
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($company_id)
 	{
+		$inputs = Input::all();
 		if ( ! $this->validator->validates(Input::all()) )
 		{
-			return Redirect::to('/users/create')->withInput()->withErrors($this->validator->errors());
+			return Redirect::route('companies.users.create', $company_id)->withInput()->withErrors($this->validator->errors());
 		}
-		$user = $this->user->add(Input::all());
-		return Redirect::to('/users')
+		$inputs['company_id'] = $company_id;
+		$user = $this->user->add($inputs);
+		return Redirect::route('companies.users.show', [ $company_id, $user['id'] ])
 			->with(['message' => 'The user has been successfully added.', 'type' => 'success' ]);
 	}
 
@@ -63,9 +65,12 @@ public function create()
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($company_id, $user_id)
 	{
-		return View::make('users.show')->withUser($this->user->getWith($id, [ 'comments', 'company' ]));
+		$user = $this->user->getWith($user_id, [ 'comments', 'company' ]);
+		if ($user['company_id'] == $company_id)
+			return View::make('users.show')->withUser($user);
+		throw new Illuminate\Database\Eloquent\ModelNotFoundException;
 	}
 
 	/**
@@ -74,11 +79,15 @@ public function create()
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($company_id, $user_id)
 	{
 		$companyRepo = App::make('Yals\Repositories\CompanyRepositories\CompanyRepositoryInterface');
-
-		return View::make('users.edit')->withUser($this->user->get($id))->withCompanies($companyRepo->getList());
+		$user        = $this->user->get($user_id);
+		if ($user['company_id'] == $company_id)
+		{
+			return View::make('users.edit')->withUser($user)->withCompanies($companyRepo->getList());
+		}
+		throw new Illuminate\Database\Eloquent\ModelNotFoundException;
 	}
 
 	/**
@@ -87,16 +96,17 @@ public function create()
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($company_id, $user_id)
 	{
 		$inputs = Input::all();
-		if ( ! $this->validator->validates($inputs, $id) )
+		if ( ! $this->validator->validates($inputs, $user_id) )
 		{
-			return Redirect::to("/users/$id/edit")->withInput()->withErrors($this->validator->errors());
+			return Redirect::route("companies.users.update", [$company_id, $user_id])->withInput()->withErrors($this->validator->errors());
 		}
-		$this->user->edit($id, $inputs);
-		return Redirect::to("/users/$id")
-			->with(['message' => "The user #{$id} has been successfully edited.", 'type' => 'success' ]);
+		$this->user->edit($user_id, $inputs);
+		$company_id = $inputs['company_id'];
+		return Redirect::route("companies.users.show", [$company_id, $user_id])
+			->with(['message' => "The user #{$user_id} has been successfully edited.", 'type' => 'success' ]);
 	}
 
 	/**
@@ -105,10 +115,10 @@ public function create()
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($company_id, $user_id)
 	{
-		if ($this->user->deleteById($id) !== false)
-			return Redirect::to("/users")->withMessage("User #$id has been deleted.")->withType('info');
+		if ($this->user->deleteById($user_id) !== false)
+			return Redirect::route("companies.users.show", [$company_id, $user_id])->withMessage("User #$user_id has been deleted.")->withType('info');
 		return $this->unexpectedError('An error occured while deleting this user.', '/users');
 	}
 

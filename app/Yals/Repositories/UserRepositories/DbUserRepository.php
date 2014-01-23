@@ -2,6 +2,7 @@
 
 use User;
 use DB;
+use Illuminate\Database\Eloquent\ModelNotFoundException as ModelNotFoundException;
 
 class UserException extends \Exception {}
 
@@ -78,7 +79,7 @@ public function getTopByComments($nb_users = 3, $nb_comments = 3)
         }
         $user = $query->first();
         if ( ! $user )
-            throw ModelNotFoundException;
+            throw new ModelNotFoundException;
         return $user;
     }
 

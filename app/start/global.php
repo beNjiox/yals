@@ -46,7 +46,9 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 |
 */
 
-require_once app_path().'/errors.php';
+require_once app_path() . '/errors.php';
+require_once app_path() . '/breadcrumbs.php';
+require_once app_path() . '/link_helpers.php';
 
 /*
 |--------------------------------------------------------------------------

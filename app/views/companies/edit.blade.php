@@ -2,6 +2,9 @@
 
 @section ('content')
 
+@section('title', "Edit " . $company['name'] . " " . trans('yals.company'))
+@section('breadcrumbs', Breadcrumbs::render('companies.edit', $company ))
+
 @include ('partials/_errors_form')
 
 {{ Form::model($company,
@@ -15,14 +18,14 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Edit company</h3>
+            <h3 class="panel-title">@lang('yals.edit_company')</h3>
         </div>
         <div class="panel-body">
             @include ('companies/_form')
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    {{ Form::submit('Edit this company', [ 'class' => 'btn btn-primary' ]) }}
+                    {{ Form::submit(trans('yals.edit_company'), [ 'class' => 'btn btn-primary' ]) }}
                 </div>
             </div>
 

@@ -1,8 +1,29 @@
+BreadCrumbs + Titles + Links + i18n:
+  ✔ companies @done (14-01-23 22:37)
+  ✔ companies/create @done (14-01-23 23:27)
+  ✔ companies/{id} @done (14-01-23 23:31)
+  ✔ companies/{id}/edit @done (14-01-23 23:50)
+
+  ☐ companies/{id}/users
+  ☐ companies/{id}/users/create
+  ☐ companies/{id}/users/{user_id}
+  ☐ companies/{id}/users/{user_id}/edit
+
+
+App General:
+  ☐ BreadCrumbs
+  ☐ Page titles
+  ☐ CSRF
+  ☐ Paginations
+  ☐ Handle limit properly
+  ☐ Verify belongsTo association when saving/updating
+
+
 Dashboard:
   ✔ get 3 users with the most comments and get 5 last comments @done (14-01-22 20:17)
   ✔ get 5 very last comments @done (14-01-22 00:07)
   ✔ get 3 companies with most users @done (14-01-22 20:17)
-  ☐ get the numbers of each comment types
+  ✔ get the numbers of each comment types @done (14-01-23 03:31)
 
 Testing:
   ☐ Dashboard
@@ -16,12 +37,6 @@ Comments:
   ☐ Deletable
   ☐ Index page
 
-App General:
-  ☐ BreadCrumbs
-  ☐ Page titles
-  ☐ CSRF
-  ☐ Paginations
-  ☐ Handle limit properly
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:

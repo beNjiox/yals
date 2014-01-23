@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="">
     <head>
-        <title>Title Page</title>
+        <title>@yield('title') - Yet another Laravel Sample</title>
         <meta charset=utf-8>
         <meta name=description content="">
         <meta name=viewport content="width=device-width, initial-scale=1">
@@ -26,6 +26,7 @@
         <div class="content">
             <div class="container">
                 <div class="row">
+                    @yield('breadcrumbs')
                     @yield('content')
                 </div>
             </div>

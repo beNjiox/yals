@@ -4,7 +4,7 @@
 
 @include ('partials/_errors_form')
 
-{{ Form::open([ 'url' => 'users', 'class' => 'form-horizontal', 'role' => 'form' ]) }}
+{{ Form::open([ 'route' => [ 'companies.users.store', Request::segment(2) ], 'class' => 'form-horizontal', 'role' => 'form' ]) }}
 
     <div class="panel panel-default">
         <div class="panel-heading">

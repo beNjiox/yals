@@ -115,6 +115,8 @@ return array(
 
 		/* app specific */
 		'Yals\Repositories\RepositoryServiceProvider',
+		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
+
 
 		/* dev specific */
 		'Way\Generators\GeneratorsServiceProvider',
@@ -185,6 +187,8 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
+		'Breadcrumbs' => 'DaveJamesMiller\Breadcrumbs\Facade',
+
 
 	),
 

@@ -2,11 +2,7 @@
 
 @section ('content')
 
-    <ol class="breadcrumb">
-      <li><a href="/">Home</a></li>
-      <li><a href="/users">Users</a></li>
-      <li class="active">{{ $user['username'] }}</li>
-    </ol>
+    @section('breadcrumbs', Breadcrumbs::render('companies.users.show', $user))
 
     <div class="panel panel-info show-user">
           <div class="panel-heading">
@@ -15,9 +11,10 @@
                     <h3 class="panel-title">{{ $user['username'] }}</h3>
                 </div>
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-right">
-                    <a href="/users/{{ $user['id'] }}" data-method='DELETE' data-confirm='Are you sure?'><i class='fa fa-times'></i></a>
+                    <a href="{{ route('companies.users.destroy', [ $user['company_id'], $user['id'] ]) }}"
+                       data-method='DELETE' data-confirm='Are you sure?'><i class='fa fa-times'></i></a>
                     &nbsp;
-                    <a href="/users/{{ $user['id'] }}/edit">
+                    <a href="{{ route('companies.users.edit', [ $user['company_id'], $user['id'] ]) }}">
                       <i class='fa fa-edit'></i>
                     </a>
                 </div>

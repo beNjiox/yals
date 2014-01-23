@@ -12,4 +12,4 @@ Route::resource('companies', 'CompanyController');
 Route::resource('companies.users', 'UserController');
 Route::resource('companies.users.comments', 'CommentController');
 
-Route::get('/', 'DashboardController@main');
+Route::get('/', array('as' => 'dashboard.index', 'uses' => 'DashboardController@main'));
