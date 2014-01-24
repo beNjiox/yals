@@ -24,7 +24,7 @@
 
                     </div>
                     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-right action-items-row">
-                        <a href="{{ to_users($user['company_id']) }}" data-method='DELETE' data-confirm='Are you sure?'><i class='fa fa-times'></i></a>
+                        <a href="{{ to_users($user['company_id'], $user['id']) }}" data-method='DELETE' data-confirm='Are you sure?'><i class='fa fa-times'></i></a>
                         &nbsp;
                         <a href="{{ to_users($user['company_id'], $user['id'], 'edit') }}"><i class='fa fa-edit'></i></a>
                         &nbsp;

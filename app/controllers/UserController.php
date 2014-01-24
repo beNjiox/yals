@@ -129,7 +129,7 @@ class UserController extends \BaseController {
 	public function destroy($company_id, $user_id)
 	{
 		if ($this->user->deleteById($user_id) !== false)
-			return Redirect::route("companies.users.show", [$company_id, $user_id])->withMessage("User #$user_id has been deleted.")->withType('info');
+			return Redirect::route("companies.users.index", [ $company_id ])->withMessage("User #$user_id has been deleted.")->withType('info');
 		return $this->unexpectedError('An error occured while deleting this user.', '/users');
 	}
 

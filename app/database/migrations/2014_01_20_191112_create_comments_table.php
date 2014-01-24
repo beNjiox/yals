@@ -17,7 +17,7 @@ class CreateCommentsTable extends Migration {
 			$table->integer('user_id')->unsigned();
 			$table->text('text');
 			$table->enum('type', array('warning', 'danger', 'info'));
-			$table->foreign('user_id')->references('id')->on('users');
+			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}

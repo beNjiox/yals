@@ -14,7 +14,7 @@ class AddCompanyIdUsersTable extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table) {
 			$table->integer('company_id')->unsigned()->nullable()->default(null)->after('id');
-			$table->foreign('company_id')->references('id')->on('companies');
+			$table->foreign('company_id')->references('id')->on('companies')->onDelete('set null');
 		});
 	}
 

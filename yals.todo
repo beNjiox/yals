@@ -1,7 +1,7 @@
 App General:
   ☐ CSRF
   ☐ Comments layout
-  ☐ Delete doesn't work
+  ✔ Delete doesn't work @done (14-01-24 01:34)
   ☐ Paginations
   ☐ Handle limit properly
   ☐ Verify belongsTo association when saving/updating
