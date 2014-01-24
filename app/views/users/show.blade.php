@@ -2,7 +2,8 @@
 
 @section ('content')
 
-    @section('breadcrumbs', Breadcrumbs::render('companies.users.show', $user))
+    @section('breadcrumbs', Breadcrumbs::render('companies.users.show', $user, $company))
+    @section('title', $user['username'] . " from " . $company['name'])
 
     <div class="panel panel-info show-user">
           <div class="panel-heading">

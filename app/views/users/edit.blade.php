@@ -2,7 +2,8 @@
 
 @section ('content')
 
-  @section('breadcrumbs', Breadcrumbs::render('companies.users.edit', $user))
+  @section('breadcrumbs', Breadcrumbs::render('companies.users.edit', $user, $company))
+  @section('title', "Edit " . $user['username'] . " from " . $company['name'])
   @include ('partials/_errors_form')
 
 {{ Form::model($user,

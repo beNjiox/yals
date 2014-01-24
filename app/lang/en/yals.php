@@ -5,6 +5,9 @@ return [
     /* BREADCRUMBS */
     'breadcrumb_edit' => "Edit",
 
+    /* DASHBOARD */
+    'welcome'         => "Welcome",
+
     /* GENERAL */
     'oops'            => "Oops!",
     'form_errors'     => "It seems that your form hasn't been perfectly filled.",
@@ -24,6 +27,13 @@ return [
     'label_company_email'             => 'Email',
     'company'                         => 'Company',
 
+    /* USERS */
+    'no_users'             => 'There is no users',
+    'user_add'             => "Add a new User",
+    'label_username'       => 'Username',
+    'placeholder_username' => 'e.g: SteveJ',
+    'label_email'          => 'Email',
+    'placeholder_email'    => 'e.g: jobs@apple.com',
 
 
 ];

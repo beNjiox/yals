@@ -3,6 +3,7 @@
 @section ('content')
 
 @section('breadcrumbs', Breadcrumbs::render('home'))
+@section('title', trans('yals.welcome'))
 
 <div class="well">
     <div class="container">
@@ -13,7 +14,7 @@
                     <li>Nested controllers</li>
                     <li>Testing integration, acceptance, unit, (100% coverage is the goal to reach)</li>
                     <li>Testable code (Repositories,services,IoC usage everywhere)</li>
-                    <li> S.O.L.I.D principles </li>
+                    <li>S.O.L.I.D principles</li>
                     <li>custom Vagrant build</li>
                     <li>Faker</li>
                     <li>Plural strings (ok this one is lame)</li>

@@ -1,16 +1,19 @@
 <?php
 
-use Yals\Repositories\UserRepositories\UserRepositoryInterface as UserRepositoryInterface;
-use Yals\Services\Validation\UserValidator as UserValidator;
+use Yals\Repositories\UserRepositories\UserRepositoryInterface 			as UserRepositoryInterface;
+use Yals\Repositories\CompanyRepositories\CompanyRepositoryInterface 	as CompanyRepositoryInterface;
+use Yals\Services\Validation\UserValidator 								as UserValidator;
 
 class UserController extends \BaseController {
 
 	protected $user;
+	protected $company;
 	protected $validator;
 
-	public function __construct(UserRepositoryInterface $user, UserValidator $validator)
+	public function __construct(UserRepositoryInterface $user, UserValidator $validator, CompanyRepositoryInterface $company)
 	{
 		$this->user      = $user;
+		$this->company   = $company;
 		$this->validator = $validator;
 	}
 
@@ -21,7 +24,9 @@ class UserController extends \BaseController {
 	 */
 	public function index($company_id)
 	{
-		return View::make('users.index')->withUsers($this->user->getAllFromCompanyWithComment($company_id));
+		return View::make('users.index')
+			->withUsers($this->user->getAllFromCompanyWithComment($company_id))
+			->withCompany($this->company->get($company_id));
 	}
 
 	public function index_global()
@@ -34,11 +39,12 @@ class UserController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create($company_id)
 	{
-		$companyRepo = App::make('Yals\Repositories\CompanyRepositories\CompanyRepositoryInterface');
 
-		return View::make('users.create')->withCompanies($companyRepo->getList());
+		return View::make('users.create')
+			->withCompanies($this->company->getList())
+			->withCompany($this->company->get($company_id));
 	}
 
 	/**
@@ -67,9 +73,12 @@ class UserController extends \BaseController {
 	 */
 	public function show($company_id, $user_id)
 	{
+
 		$user = $this->user->getWith($user_id, [ 'comments', 'company' ]);
 		if ($user['company_id'] == $company_id)
-			return View::make('users.show')->withUser($user);
+			return View::make('users.show')
+				->withUser($user)
+				->withCompany($this->company->get($company_id));
 		throw new Illuminate\Database\Eloquent\ModelNotFoundException;
 	}
 
@@ -81,11 +90,13 @@ class UserController extends \BaseController {
 	 */
 	public function edit($company_id, $user_id)
 	{
-		$companyRepo = App::make('Yals\Repositories\CompanyRepositories\CompanyRepositoryInterface');
 		$user        = $this->user->get($user_id);
 		if ($user['company_id'] == $company_id)
 		{
-			return View::make('users.edit')->withUser($user)->withCompanies($companyRepo->getList());
+			return View::make('users.edit')
+				->withUser($user)
+				->withCompany($this->company->get($company_id))
+				->withCompanies($this->company->getList());
 		}
 		throw new Illuminate\Database\Eloquent\ModelNotFoundException;
 	}
