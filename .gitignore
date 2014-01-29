@@ -11,3 +11,6 @@ public/packages
 app/config/packages/barryvdh/laravel-debugbar/.gitkeep
 app/config/packages/barryvdh/laravel-debugbar/config.php
 app/storage/debugbar
+yals.sublime-project
+yals.sublime-workspace
+server.php
