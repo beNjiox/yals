@@ -2,20 +2,22 @@
 
 This is a laravel4.1 showcase app which tries to leverage all the best practices and feature of the framework, including
 
-    * Nested controllers
-    * Testing integration, acceptance, unit, (100% coverage is the goal to reach)
-    * Testable code (Repositories,services,IoC usage everywhere)
-    * S.O.L.I.D principles
-    * custom Vagrant build
-    * Faker
-    * Plural strings (ok this one is lame)
-    * "Complex" queries
-    * Caching (through observer pattern)
-    * and a lot more.
+* Nested controllers
+* Testing integration, acceptance, unit, (100% coverage is the goal to reach)
+* Testable code (Repositories,services,IoC usage everywhere)
+* S.O.L.I.D principles
+* custom Vagrant build
+* Faker
+* Plural strings (ok this one is lame)
+* "Complex" queries
+* Caching (through observer pattern)
+* and a lot more.
 
 The project was initially just for me, but find out that it could be used to showcase some unknown practices of this great framework.
 
-For now it's working pretty well using vagrant but it's still perfect.
+For now it's working pretty well using vagrant but it's still not perfect.
+I'm planning on doing an hosted version very soon when the app will be stable.
+For now you can just checkout the code, fork it and/or submit some ideas.
 
 If you want to play with it :
 
