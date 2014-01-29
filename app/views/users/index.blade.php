@@ -17,7 +17,7 @@
         </a>
         <ul class="list-group">
         @foreach ($users as $user)
-            <li class="list-group-item user-row">
+            <li class="list-group-item index-item-row">
                 <div class="row">
                     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                         {{ link_to_users($user['company_id'], $user['id'], 'show', $user['username'])}}

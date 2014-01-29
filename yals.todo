@@ -1,19 +1,15 @@
 App General:
   ☐ CSRF
   ☐ Comments layout
-  ✔ Delete doesn't work @done (14-01-24 01:34)
   ☐ Paginations
   ☐ Handle limit properly
   ☐ Verify belongsTo association when saving/updating
-
-
-Dashboard:
+  ☐ General exception type for repository
+  ☐ Exception for illicit $ids in controllers (user id which doesnt belongsto a company id)
 
 Testing:
   ☐ Dashboard
   ☐ Comments
-
-Companies:
 
 Comments:
   ☐ Editable
@@ -23,21 +19,22 @@ Comments:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
- ✔ companies @done (14-01-23 22:37) @project(BreadCrumbs + Titles + Links + i18n)
- ✔ companies/create @done (14-01-23 23:27) @project(BreadCrumbs + Titles + Links + i18n)
- ✔ companies/{id} @done (14-01-23 23:31) @project(BreadCrumbs + Titles + Links + i18n)
- ✔ companies/{id}/edit @done (14-01-23 23:50) @project(BreadCrumbs + Titles + Links + i18n)
- ✔ companies/{id}/users @done (14-01-24 00:28) @project(BreadCrumbs + Titles + Links + i18n)
- ✔ companies/{id}/users/create @done (14-01-24 00:47) @project(BreadCrumbs + Titles + Links + i18n)
- ✔ companies/{id}/users/{user_id} @done (14-01-24 00:47) @project(BreadCrumbs + Titles + Links + i18n)
- ✔ companies/{id}/users/{user_id}/edit @done (14-01-24 00:47) @project(BreadCrumbs + Titles + Links + i18n)
- ✔ BreadCrumbs @done (14-01-24 00:48) @project(App General)
+ ✔ Delete doesn't work @done (14-01-24 01:34) @project(App General)
  ✔ Page titles @done (14-01-24 00:48) @project(App General)
- ✔ get 3 users with the most comments and get 5 last comments @done (14-01-22 20:17) @project(Dashboard)
- ✔ get 5 very last comments @done (14-01-22 00:07) @project(Dashboard)
- ✔ get 3 companies with most users @done (14-01-22 20:17) @project(Dashboard)
+ ✔ BreadCrumbs @done (14-01-24 00:48) @project(App General)
+ ✔ companies/{id}/users/{user_id}/edit @done (14-01-24 00:47) @project(BreadCrumbs + Titles + Links + i18n)
+ ✔ companies/{id}/users/{user_id} @done (14-01-24 00:47) @project(BreadCrumbs + Titles + Links + i18n)
+ ✔ companies/{id}/users/create @done (14-01-24 00:47) @project(BreadCrumbs + Titles + Links + i18n)
+ ✔ companies/{id}/users @done (14-01-24 00:28) @project(BreadCrumbs + Titles + Links + i18n)
+ ✔ companies/{id}/edit @done (14-01-23 23:50) @project(BreadCrumbs + Titles + Links + i18n)
+ ✔ companies/{id} @done (14-01-23 23:31) @project(BreadCrumbs + Titles + Links + i18n)
+ ✔ companies/create @done (14-01-23 23:27) @project(BreadCrumbs + Titles + Links + i18n)
+ ✔ companies @done (14-01-23 22:37) @project(BreadCrumbs + Titles + Links + i18n)
  ✔ get the numbers of each comment types @done (14-01-23 03:31) @project(Dashboard)
+ ✔ get 3 users with the most comments and get 5 last comments @done (14-01-22 20:17) @project(Dashboard)
+ ✔ get 3 companies with most users @done (14-01-22 20:17) @project(Dashboard)
  ✔ A user can choose which company to join @done (14-01-22 17:14) @project(Companies)
+ ✔ get 5 very last comments @done (14-01-22 00:07) @project(Dashboard)
  ✔ Unit Testing @done (14-01-20 03:30) @project(Testing)
  ✔ Functional Testing @done (14-01-20 03:30) @project(Testing)
  ✔ User CRUD @done (14-01-18 15:16) @project(Users)

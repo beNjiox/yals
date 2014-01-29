@@ -1,16 +1,17 @@
-<?php
+    <?php
 
-return [
+    return [
 
     /* BREADCRUMBS */
-    'breadcrumb_edit' => "Edit",
+    'breadcrumb_edit'                 => "Edit",
+    'breadcrumb_create'               => "Create",
 
     /* DASHBOARD */
-    'welcome'         => "Welcome",
+    'welcome'                         => "Welcome",
 
     /* GENERAL */
-    'oops'            => "Oops!",
-    'form_errors'     => "It seems that your form hasn't been perfectly filled.",
+    'oops'                            => "Oops!",
+    'form_errors'                     => "It seems that your form hasn't been perfectly filled.",
 
     /* COMPANIES */
     'companies_title'                 => "Companies",
@@ -20,6 +21,8 @@ return [
     'edit_company'                    => "Edit this company",
     'label_company_name'              => 'Company name',
     'placeholder_company_name'        => 'e.g: Apple INC',
+    'label_company_email'             => 'Company main email',
+    'placeholder_company_email'       => 'e.g: ceo@companyexample.org',
     'label_website_url'               => 'Website URL',
     'placeholder_website_url'         => 'e.g: http://www.apple.com',
     'label_company_description'       => 'Company description',
@@ -28,12 +31,12 @@ return [
     'company'                         => 'Company',
 
     /* USERS */
-    'no_users'             => 'There is no users',
-    'user_add'             => "Add a new User",
-    'label_username'       => 'Username',
-    'placeholder_username' => 'e.g: SteveJ',
-    'label_email'          => 'Email',
-    'placeholder_email'    => 'e.g: jobs@apple.com',
+    'no_users'                        => 'There is no users',
+    'user_add'                        => "Add a new User",
+    'label_username'                  => 'Username',
+    'placeholder_username'            => 'e.g: SteveJ',
+    'label_email'                     => 'Email',
+    'placeholder_email'               => 'e.g: jobs@apple.com',
 
 
-];
+    ];

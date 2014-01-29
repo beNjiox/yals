@@ -38,6 +38,12 @@ Breadcrumbs::register('companies.edit', function($breadcrumbs, $company) {
     $breadcrumbs->push(Lang::get('yals.breadcrumb_edit'));
 });
 
+Breadcrumbs::register('companies.create', function($breadcrumbs) {
+    $breadcrumbs->push('Home', route('dashboard.index'));
+    $breadcrumbs->push('Companies', route('companies.index'));
+    $breadcrumbs->push(Lang::get('yals.breadcrumb_create'));
+});
+
 /* COMPANIES */
 
 Breadcrumbs::register('companies.users.index', function($breadcrumbs, $company) {

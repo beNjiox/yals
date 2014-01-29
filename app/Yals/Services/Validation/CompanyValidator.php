@@ -7,7 +7,8 @@ class CompanyValidator {
     public static $rules = [
         'name'        => 'required|unique:companies,name',
         'website_url' => 'required|url|unique:companies,website_url',
-        'description' => 'required|between:5,150'
+        'description' => 'required|between:5,150',
+        'email'       => 'required|email|unique:companies,email'
     ];
 
     protected $errors = [];

@@ -23,9 +23,9 @@ interface CompanyRepositoryInterface
      */
     public function getMostActiveCompanies($limit = 3);
 
-    public function add(array $data);
+    public function create(array $data);
 
-    public function edit($id, array $data);
+    public function update($id, array $data);
 
     public function deleteById($id);
 

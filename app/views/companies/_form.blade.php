@@ -6,6 +6,13 @@
 </div>
 
 <div class="form-group">
+    {{ Form::label("email", trans('yals.label_company_email'), [ 'class' => 'control-label col-sm-2']) }}
+    <div class='col-lg-10'>
+        {{ Form::text("email", null, [ 'style' => 'width:50%', 'placeholder' => trans('yals.placeholder_company_email') ]) }}
+    </div>
+</div>
+
+<div class="form-group">
     {{ Form::label("website_url", trans('yals.label_website_url'), [ 'class' => 'control-label col-sm-2']) }}
     <div class='col-sm-10'>
         {{ Form::text("website_url", null, [ 'style' => 'width:50%', 'placeholder' => trans('yals.placeholder_website_url') ]) }}

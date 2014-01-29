@@ -73,12 +73,13 @@ class UserController extends \BaseController {
 	 */
 	public function show($company_id, $user_id)
 	{
-
 		$user = $this->user->getWith($user_id, [ 'comments', 'company' ]);
 		if ($user['company_id'] == $company_id)
+		{
 			return View::make('users.show')
 				->withUser($user)
 				->withCompany($this->company->get($company_id));
+		}
 		throw new Illuminate\Database\Eloquent\ModelNotFoundException;
 	}
 

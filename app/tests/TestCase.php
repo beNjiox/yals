@@ -41,6 +41,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
 		parent::setUp();
 		Artisan::call('migrate:install');
 		Artisan::call('migrate:refresh');
+		Artisan::call('db:seed');
 		Eloquent::unguard();
 	}
 

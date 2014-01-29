@@ -2,6 +2,7 @@
 
 @section ('content')
 
+@section('breadcrumbs', Breadcrumbs::render('companies.create'))
 @section('title', trans('yals.companies_title_create'))
 @include ('partials/_errors_form')
 

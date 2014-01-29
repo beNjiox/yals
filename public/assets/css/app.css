@@ -15,7 +15,7 @@ h1.top_title {
     font-size:18px;
 }
 
-.user-row .action-items-row
+.index-item-row .action-items-row
 {
     display:none;
 }
@@ -24,10 +24,10 @@ h1.top_title {
     font-size:17px;
 }
 
-.user-row:hover .action-items-row  {
+.index-item-row:hover .action-items-row  {
     display:block;;
 }
 
-.user-row:hover {
+.index-item-row:hover {
     background: #e6e6e6;
 }

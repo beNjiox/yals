@@ -30,6 +30,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :group => "www-data",
         :mount_options => ["dmode=775","fmode=664"]
 
+    config.vm.network :forwarded_port,
+        guest: 22,
+        host: 2242,
+        id: "ssh",
+        auto_correct: true
+
     # Use hostonly network with a static IP Address and enable
     # hostmanager so we can have a custom domain for the server
     # by modifying the host machines hosts file

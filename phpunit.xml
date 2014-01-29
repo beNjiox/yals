@@ -12,7 +12,8 @@
 >
     <testsuites>
       <testsuite name="User">
-        <directory suffix=".php">app/tests/User</directory>
+        <!-- <directory suffix=".php">app/tests/User</directory> -->
+        <directory suffix=".php">app/tests/Company</directory>
       </testsuite>
     </testsuites>
 

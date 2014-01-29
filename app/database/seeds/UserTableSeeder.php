@@ -14,12 +14,12 @@ class UserTableSeeder extends \Seeder {
     public function run() {
         $faker = Faker\Factory::create();
 
-        for ($i = 0; $i < 20; $i++)
+        for ($i = 0; $i < 80; $i++)
         {
             $this->user->add([
                 'username' => $faker->name,
                 'email'    => $faker->email,
-                'company_id' => mt_rand(1, 8)
+                'company_id' => (($i % 8) + 1)
             ]);
         }
     }

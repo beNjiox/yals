@@ -16,7 +16,7 @@ class CompanyTableSeeder extends \Seeder {
 
         for ($i = 0; $i < 8; $i++)
         {
-            $this->company->add([
+            $this->company->create([
                 'name'        => $faker->company,
                 'email'       => $faker->safeEmail,
                 'catchphrase' => $faker->catchPhrase,

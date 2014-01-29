@@ -8,6 +8,33 @@ class CompanyException extends \Exception {}
 
 class DbCompanyRepository implements CompanyRepositoryInterface
 {
+
+    public function create(array $data)
+    {
+        $company = new Company;
+        if ($company->fill($data)->save()) return $company->toArray();
+        throw new CompanyException("This company can't be added.");
+    }
+
+    public function get($id)
+    {
+        return Company::findOrFail($id)->toArray();
+    }
+
+    public function update($id, array $data)
+    {
+        $company = Company::findOrFail($id)->fill($data);
+        if (!$company->save())
+            throw new CompanyException("This company can't be edited.");
+        return $company->toArray();
+    }
+
+    public function deleteById($id)
+    {
+        if (Company::findOrFail($id)->delete()) return true;
+        throw new CompanyException("This company can't be deleted.");
+    }
+
     public function getAll($limit = 10)
     {
         return Company::all()->toArray();
@@ -28,32 +55,14 @@ class DbCompanyRepository implements CompanyRepositoryInterface
 
         $companies = Company::whereIn('id', $ids)->with('users')->get()->toArray();
 
-        \Log::info(print_r($companies, true));
-
         return array_reverse($companies);
-
     }
 
-    public function getMostActiveCompanies($limit = 3)
-    {
-
-    }
+    public function getMostActiveCompanies($limit = 3) { }
 
     public function getList()
     {
         return Company::lists('name', 'id');
-    }
-
-    public function add(array $data)
-    {
-        $company = new Company;
-        if ($company->fill($data)->save()) return $company->toArray();
-        throw new CompanyException("This company can't be added.");
-    }
-
-    public function get($id)
-    {
-        return Company::findOrFail($id)->toArray();
     }
 
     public function getWith($id, array $associated_models)
@@ -71,18 +80,6 @@ class DbCompanyRepository implements CompanyRepositoryInterface
         return $company;
     }
 
-    public function edit($id, array $data)
-    {
-        $company = Company::findOrFail($id)->fill($data);
-        if ($company->save()) return $company->toArray();
-        throw new CompanyException("This company can't be edited.");
-    }
-
-    public function deleteById($id)
-    {
-        if (Company::findOrFail($id)->delete()) return true;
-        throw new CompanyException("This company can't be deleted.");
-    }
 
     public function total()
     {
