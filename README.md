@@ -1,6 +1,3 @@
-URL: [http://larabooster.bguez.io](http://larabooster.bguez.io)
-Status: unfinished, I have a lot of ideas to improve this mini project, but don't have the time required to do eveerything I wanted.
-
 ## Yet Another Laravel Sample
 
 This is a laravel4.1 showcase app which tries to leverage all the best practices and feature of the framework, including
