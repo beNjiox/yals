@@ -16,22 +16,27 @@ class DbUserRepository implements UserRepositoryInterface {
      */
 public function getTopByComments($nb_users = 3, $nb_comments = 3)
 {
-    $data['users'] =
-             DB::table('users')
-                ->join('comments', 'users.id', '=', 'comments.user_id')
-                ->select(DB::raw('count(comments.id) as nb_comments, users.username, users.id'))
-                ->groupBy('users.id')
-                ->orderBy(DB::raw('nb_comments'), 'desc')
-                ->limit($nb_users)
-                ->get();
-
-    $ids = array_column($data['users'], 'id');
-
+    $ids = $this->getIdsOfTopUsers($nb_users);
     return User::whereIn('id', $ids)->with([ 'comments' => function($query) use ($nb_comments) {
         $query->orderBy('id', 'DESC');
-        // $query->limit(6);
     } ])->get()->toArray();
 }
+
+private function getIdsOfTopUsers($nb_users)
+{
+    $users =
+        DB::table('users')
+            ->join('comments', 'users.id', '=', 'comments.user_id')
+            ->select(DB::raw('count(comments.id) as nb_comments, users.username, users.id'))
+            ->groupBy('users.id')
+            ->orderBy(DB::raw('nb_comments'), 'desc')
+            ->limit($nb_users)
+            ->get();
+
+        $ids = array_column($users, 'id');
+
+        return $ids;
+    }
 
     public function getAllWithComment($limit = 10)
     {

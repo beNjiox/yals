@@ -48,7 +48,7 @@ EOF
 
 echo "[ ------ Setup Apache ------ ]"
 sudo a2enmod rewrite
-curl https://gist.github.com/fideloper/2710970/raw/vhost.sh > vhost
+curl -L https://gist.github.com/fideloper/2710970/raw/vhost.sh > vhost
 sudo chmod guo+x vhost
 sudo mv vhost /usr/local/bin
 

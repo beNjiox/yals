@@ -1,7 +1,5 @@
 <?php
 
-require 'vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php';
-
 class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
 	protected function _mockUser()

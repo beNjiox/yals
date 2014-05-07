@@ -26,9 +26,6 @@ class CompanyController extends \BaseController {
 
 	public function store()
 	{
-		Company::saving(function(){
-			return false;
-		});
 		if ( ! $this->validator->validates(Input::all()) )
 		{
 			return Redirect::to('/companies/create')->withInput()->withErrors($this->validator->errors());
