@@ -1,3 +1,6 @@
+URL: [http://larabooster.bguez.io](http://larabooster.bguez.io)
+Status: unfinished, I have a lot of ideas to improve this mini project, but don't have the time required to do eveerything I wanted.
+
 ## Yet Another Laravel Sample
 
 This is a laravel4.1 showcase app which tries to leverage all the best practices and feature of the framework, including
@@ -15,10 +18,6 @@ This is a laravel4.1 showcase app which tries to leverage all the best practices
 
 The project was initially just for me, but find out that it could be used to showcase some unknown practices of this great framework.
 
-For now it's working pretty well using vagrant but it's still not perfect.
-I'm planning on doing an hosted version very soon when the app will be stable.
-For now you can just checkout the code, fork it and/or submit some ideas.
-
 If you want to play with it :
 
 ```
@@ -29,5 +28,4 @@ $> vagrant up
 ```
 
 To make uses of the vagrant build you need the vagrant box box32 and VirtualBox.
-
-It will install a basic LAMP stack with redis, php5.5 and mysql.
+It will install a basic LAMP stack with redis, memcached, php5.5 and mysql.
