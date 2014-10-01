@@ -5,7 +5,7 @@
         "preferred-install": "dist"
     },
     "require": {
-        "laravel/framework": "4.1.*",
+        "laravel/framework": "4.1.0",
         "barryvdh/laravel-debugbar": "dev-master",
         "davejamesmiller/laravel-breadcrumbs": "~2.1.0"
     },
@@ -41,12 +41,12 @@
     ],
     "minimum-stability": "dev",
     "require-dev": {
-        "davedevelopment/hamcrest-php": "dev-master",
+        "hamcrest/hamcrest-php": "1.2.0",
         "phpunit/phpunit": "dev-master",
         "mockery/mockery": "dev-master",
         "fzaninotto/faker": "dev-master",
         "fabpot/goutte": "dev-master",
-        "way/generators": "dev-master"
+        "way/generators": "~2.0"
     },
     "description": "just another sample laravel4.X App."
 }
