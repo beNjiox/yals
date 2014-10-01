@@ -19,7 +19,7 @@
         @foreach ($users as $user)
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
             <div class='well'>
-                <h3> <a href='/users/{{ $user["id"] }}'> {{{ $user['username'] }}} </a> </h3>
+                <h3> {{ link_to_users($user['company_id'], $user['id'], 'show', $user['username']) }} </h3>
                 <h4> {{ count($user['comments']) }} {{ Str::plural("Comment", count($user['comments'])) }}</h4>
                 <hr>
 
